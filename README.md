@@ -9,6 +9,14 @@ Code Semantic Enrichment for Deep Code Search
 * lucene 7.7.1
 
 
+## Prepare Environment
+```
+conda create -f environment.yml
+conda activate semenr
+pip install -r requirements.txt
+```
+
+
 ## Usage
 
    ### DataSets

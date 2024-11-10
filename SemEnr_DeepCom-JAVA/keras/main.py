@@ -179,7 +179,7 @@ class CodeSearcher:
         val_loss = {'loss': 1., 'epoch': 0}
         BestMRR=0
         BestEpoch=0
-        f1=open('/data/userName/SemEnr_DeepCom-JAVA/keras/results/training_results.txt','a',encoding='utf-8',errors='ignore')
+        f1=open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'results/training_results.txt'),'a',encoding='utf-8',errors='ignore')
         for i in range(self.train_params['reload']+1, nb_epoch):
             print('Epoch %d :: \n' % i, end='')            
             logger.debug('loading data chunk..')
@@ -388,7 +388,7 @@ class CodeSearcher:
             self._eval_sets['descs']=descs
         succrate1,succrate5,succrate10,acc,mrr,map,ndcg=0,0,0,0,0,0,0
         data_len=len(self._eval_sets['descs'])
-        f3=open('/data/userName/SemEnr_DeepCom-JAVA/keras/results/eval_results_iter.txt','a',encoding='utf-8',errors='ignore')
+        f3=open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'results/eval_results_iter.txt'),'a',encoding='utf-8',errors='ignore')
         for i in tqdm(range(data_len)):
             # print(i) 
             desc=self._eval_sets['descs'][i]#good desc
@@ -422,7 +422,7 @@ class CodeSearcher:
         map = map / float(data_len)
         ndcg= ndcg/ float(data_len)
         print('SuccRate1={},SuccRate5={},SuccRate10={}, ACC={}, MRR={}, MAP={}, nDCG={}'.format(succrate1,succrate5,succrate10,acc,mrr,map,ndcg))
-        f2=open('/data/userName/SemEnr_DeepCom-JAVA/keras/results/eval_results.txt','a',encoding='utf-8',errors='ignore')
+        f2=open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'results/eval_results.txt'),'a',encoding='utf-8',errors='ignore')
         f2.write('SuccRate1={},SuccRate5={},SuccRate10={}, ACC={}, MRR={}, MAP={}, nDCG={}'.format(succrate1,succrate5,succrate10,acc,mrr,map,ndcg)+'\n')
         return succrate1,mrr
                 
@@ -530,8 +530,8 @@ if __name__ == '__main__':
             codesearcher.load_model_epoch(model, conf['training_params']['reload'])
         # codesearcher.load_code_reprs()
         codesearcher.load_codebase()           
-        resultsFile=codecs.open('/data/userName/SemEnr_DeepCom-JAVA/keras/results/search_results.txt','w',encoding='utf-8',errors='ignore')
-        queriesFile=codecs.open('/data/userName/SemEnr_DeepCom-JAVA/keras/results/query.txt', "r", encoding='utf-8',errors='ignore')
+        resultsFile=codecs.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'results/search_results.txt'),'w',encoding='utf-8',errors='ignore')
+        queriesFile=codecs.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'results/query.txt'), "r", encoding='utf-8',errors='ignore')
         n_results=10
         while 1:
             queries=queriesFile.readline().splitlines()
