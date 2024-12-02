@@ -1,6 +1,8 @@
 # readme
 `My-try folder is my contribute`
 Prepare Environment contributed by licyk
+Environment add ollama.
+this is my try and help:[https://hg-dev17.github.io/2024/12/02/ollama-install/](https://hg-dev17.github.io/2024/12/02/ollama-install/)
 # SemEnr
 Code Semantic Enrichment for Deep Code Search
 
