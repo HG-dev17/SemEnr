@@ -1,5 +1,6 @@
 # readme
 `My-try folder is my contribute`
+Prepare Environment contributed by licyk
 # SemEnr
 Code Semantic Enrichment for Deep Code Search
 
